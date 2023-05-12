@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mahipal.feature_one">
+
+    <application>
+        <activity
+            android:name="com.mahipal.feature_one.FeatureOneActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

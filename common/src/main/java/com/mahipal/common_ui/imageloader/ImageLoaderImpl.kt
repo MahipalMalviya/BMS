@@ -1,0 +1,29 @@
+package com.mahipal.common_ui.imageloader
+
+import android.content.Context
+import android.widget.ImageView
+import com.mahipal.core.ImageLoader
+import com.squareup.picasso.Picasso
+
+class ImageLoaderImpl constructor(
+    private val context: Context
+) : ImageLoader {
+
+    private var picasso: Picasso = Picasso
+        .Builder(context)
+        .build()
+
+    override fun cacheImage(imageUrl: String) {
+        picasso.load(imageUrl)
+            .fetch()
+    }
+
+    override fun loadImage(
+        imageUrl: String,
+        imageView: ImageView
+    ) {
+        picasso
+            .load(imageUrl)
+            .into(imageView)
+    }
+}
