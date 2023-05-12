@@ -1,6 +1,7 @@
 package com.mahipal.feature_one
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.mahipal.core.ImageLoader
@@ -26,7 +27,6 @@ class FeatureOneActivity : AppCompatActivity() {
         setContentView(binding.root)
         FeatureOneDaggerProvider.component.inject(this)
 
-
         initialize()
     }
 
@@ -45,6 +45,10 @@ class FeatureOneActivity : AppCompatActivity() {
             binding.tvMovieDate.text = it.showDate
 
             timesAdapter.setData(it.showTimes)
+            timesAdapter.onTimeClick = { time ->
+                Toast.makeText(this,"Seat booked at $time", Toast.LENGTH_LONG).show()
+                finish()
+            }
 
             imageLoader.loadImage(
                 imageUrl = "https://static.businessworld.in/article/article_extra_large_image/1609147522_O1aw88_BMS.jpg",
